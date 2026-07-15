@@ -294,11 +294,7 @@ function generateTitles() {
 
   'Relaxing ' + topic + ' for ' + audience,
 
-  'Enjoy ' + benefit + ' with ' + topic,
-
   'Peaceful ' + topic + ' for ' + time,
-
-  topic + ' to help you ' + benefit,
 
   'Calming ' + topic + ' for better sleep',
 
@@ -306,9 +302,13 @@ function generateTitles() {
 
   'Gentle ' + topic + ' for focus and study',
 
-  'Relax and unwind with ' + topic
+  'Relax and unwind with ' + topic,
 
-  ];
+  'Background ' + topic + ' for work and study',
+
+  'Natural ' + topic + ' for a peaceful atmosphere'
+
+];
 titles.sort(function() {
 
   return Math.random() - 0.5;
@@ -317,25 +317,29 @@ titles.sort(function() {
 const selectedTitles = titles.slice(0, 5);
 const descriptions = [
 
-  'This ' + topic + ' is created to help ' + audience + ' enjoy ' + benefit + '.',
+  const descriptions = [
 
-  'Enjoy ' + time + ' of calming ' + topic + ' designed for ' + audience + '.',
+  'Enjoy ' + time + ' of soothing ' + topic + ' designed for ' + audience + '.',
 
-  'Take a moment to ' + benefit + ' with this ' + topic + '.',
+  'Relax and unwind with calming ' + topic + ' in a peaceful atmosphere.',
 
-  'Perfect background audio for study, work, and focus.',
+  'Perfect background audio for ' + benefit + ', study, work, meditation, or rest.',
 
-  'Let the gentle ambience help you unwind and recharge.',
+  'Use this relaxing ' + topic + ' during reading, studying, or quiet reflection.',
 
-  'Ideal for evening relaxation and better sleep.',
+  'A peaceful soundtrack for ' + benefit + ' and everyday listening.',
 
-  'Use this peaceful ' + topic + ' during your daily routine.',
+  'Designed to help ' + audience + ' feel more relaxed, focused, and refreshed.',
 
-  'Create a calm atmosphere anywhere you are.',
+  'Let the gentle ambience help you recharge after a long day.',
 
-  'Enjoy natural ambience without distractions.',
+  'Ideal for creating a calm and comfortable environment at home or at work.',
 
-  'Perfect for meditation, reflection, and quiet moments.'
+  'Enjoy natural and soothing sounds without distractions.',
+
+  'Take a moment to slow down and enjoy the peaceful atmosphere.'
+
+];
 
 ];
 

@@ -251,61 +251,131 @@ function generateTitles() {
 
   const time = document.getElementById('time').value;
 
-  let titles = [];
+const titleBank = {
 
-if (audience === 'general') {
+  'rain sounds': [
 
-  titles = [
+    'Rainy Night Sounds for Deep Relaxation',
 
-    'Best ' + topic + ' for relaxation',
+    'Cozy Rain Ambience for Peaceful Sleep',
 
-    time + ' of ' + topic,
+    'Soft Rainfall Outside the Window',
 
-    'Peaceful ' + topic + ' for ' + time,
+    'Gentle Evening Rain for Quiet Moments',
 
-    'Calming ' + topic + ' for better sleep',
+    'Relaxing Rain Sounds to Unwind After a Long Day',
 
-    'Soothing ' + topic + ' for relaxation',
+    'Calm Rainfall for Meditation and Rest',
 
-    'Gentle ' + topic + ' for focus and study',
+    'Peaceful Rain Sounds for Deep Sleep',
 
-    'Relax and unwind with ' + topic,
+    'Rain Ambience for Study and Focus',
 
-    'Background ' + topic + ' for work and study',
+    'Soothing Rainfall Under a Quiet Night Sky',
 
-    'Natural ' + topic + ' for a peaceful atmosphere',
+    'Listen to Gentle Rain and Relax'
 
-    'Relaxing ' + topic + ' for quiet moments'
+  ],
 
-  ];
+  'ocean waves': [
 
-} else {
+    'Ocean Waves at Sunset',
 
-  titles = [
+    'Peaceful Beach Sounds for Relaxation',
 
-    'Relaxing ' + topic + ' for ' + audience,
+    'Gentle Waves Rolling onto the Shore',
 
-    'Calming ' + topic + ' for ' + audience,
+    'Seaside Ambience for Calm Evenings',
 
-    'Peaceful ' + topic + ' for ' + audience,
+    'Relax by the Ocean with Soothing Wave Sounds',
 
-    'Soothing ' + topic + ' for ' + audience,
+    'Coastal Waves for Deep Sleep',
 
-    'Gentle ' + topic + ' for ' + audience,
+    'Calming Ocean Sounds for Meditation',
 
-    'Best ' + topic + ' for ' + audience,
+    'Ocean Breeze and Gentle Waves',
 
-    'Natural ' + topic + ' for ' + audience,
+    'Quiet Beach Ambience for Restful Sleep',
 
-    'Relax and unwind with ' + topic + ' for ' + audience,
+    'Drift Away with Relaxing Ocean Waves'
 
-    time + ' of ' + topic + ' for ' + audience,
+  ],
 
-    'Peaceful bedtime ' + topic + ' for ' + audience
+  'forest sounds': [
 
-  ];
+    'Morning Birds in a Quiet Forest',
 
-}
+    'Forest Ambience for Focus and Study',
+
+    'Peaceful Woodland Sounds',
+
+    'Relaxing Nature Walk Through the Forest',
+
+    'Gentle Breeze and Birds in the Trees',
+
+    'Deep Forest Sounds for Relaxation',
+
+    'Birdsong and Forest Ambience',
+
+    'Quiet Woodland Retreat',
+
+    'Forest Nature Sounds for Meditation',
+
+    'Calm Forest Morning Ambience'
+
+  ],
+
+  'waterfall sounds': [
+
+    'Mountain Waterfall in a Hidden Forest',
+
+    'Refreshing Waterfall Sounds for Relaxation',
+
+    'Crystal Clear Water Flowing Through Nature',
+
+    'Peaceful Waterfall Ambience',
+
+    'Escape into Nature with Soothing Water Sounds',
+
+    'Forest Waterfall for Meditation and Rest',
+
+    'Relax by a Gentle Mountain Waterfall',
+
+    'Natural Waterfall Sounds for Deep Relaxation',
+
+    'Hidden Waterfall Retreat',
+
+    'Calming Waterfall in a Lush Green Forest'
+
+  ],
+
+  'piano music': [
+
+    'Gentle Piano Melodies for a Peaceful Evening',
+
+    'Soft Piano Music for Relaxation',
+
+    'Calm Piano Ambience for Quiet Reflection',
+
+    'Relaxing Piano Music for Sleep',
+
+    'Peaceful Piano Notes in a Cozy Atmosphere',
+
+    'Evening Piano Music for Deep Relaxation',
+
+    'Slow and Gentle Piano for Meditation',
+
+    'Warm Piano Melodies for Restful Sleep',
+
+    'Quiet Piano Music for Study and Focus',
+
+    'Unwind with Soothing Piano Sounds'
+
+  ]
+
+};
+
+let titles = titleBank[topic] || [];
 
 titles.sort(function() {
 

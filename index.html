@@ -329,61 +329,90 @@ titles.sort(function() {
 });
 
 const selectedTitles = titles.slice(0, 5);
-let descriptions = [];
 
-if (audience === 'babies' || audience === 'children') {
+const topicDescriptions = {
 
-  descriptions = [
+  'rain sounds': [
 
-    'Enjoy ' + time + ' of gentle ' + topic + ' designed for a peaceful bedtime routine.',
+    'Imagine a gentle rain falling steadily outside your window as cool evening air settles over the landscape. The soft rhythm of raindrops creates a peaceful atmosphere that helps you unwind and enjoy a quiet escape from the noise of everyday life.',
 
-    'Soft and calming ' + topic + ' to help little ones relax and settle down.',
+    'A calm shower drifts across a quiet countryside while distant trees sway gently in the breeze. The soothing sound of rainfall fills the air, creating a comforting environment perfect for relaxation and restful sleep.',
 
-    'Perfect for creating a soothing atmosphere during nap time or bedtime.',
+    'Picture yourself listening to rain as it taps softly against leaves, rooftops, and the ground below. The natural ambience forms a relaxing backdrop that encourages calm thoughts and deep relaxation.',
 
-    'Let the gentle sounds provide a calm and comforting environment.',
+    'As rain falls steadily through the night, the gentle sound of water creates a cozy and tranquil atmosphere. The continuous rhythm helps block out distractions and allows you to settle into a more restful mood.',
 
-    'A peaceful soundtrack for quiet moments and restful sleep.',
+    'The soothing sound of rainfall surrounds a quiet landscape, creating a refreshing and peaceful environment. Let the gentle ambience wash away stress and help you enjoy a calm moment of relaxation.'
 
-    'Use this relaxing ' + topic + ' as part of a calming bedtime routine.',
+  ],
 
-    'Enjoy soothing sounds that help create a cozy and relaxing atmosphere.',
+  'waterfall sounds': [
 
-    'Designed to support a peaceful and restful listening experience.',
+    'Imagine standing beside a cascading waterfall hidden deep within a lush green forest. The continuous flow of water creates a refreshing natural rhythm while cool mist drifts gently through the surrounding trees.',
 
-    'Gentle ambience for relaxing evenings and quiet bedtime moments.',
+    'A powerful waterfall pours over rugged rocks into a clear mountain stream below. Birds call softly in the distance as the sound of rushing water fills the valley with a tranquil atmosphere.',
 
-    'Take a moment to enjoy the calm and peaceful atmosphere.'
+    'Surrounded by moss-covered stones and dense woodland, the waterfall flows steadily under a canopy of green leaves. The soothing sound of water echoes through the forest and helps you unwind.',
 
-  ];
+    'Crystal-clear water tumbles down a rocky cliff and gathers in a peaceful pool below. The steady roar of the waterfall blends with the sounds of nature to create a refreshing ambience.',
 
-} else {
+    'Deep in a secluded forest, a waterfall rushes through ancient rocks while cool mist drifts through the air. The natural soundscape creates a calming atmosphere that encourages relaxation.'
 
-  descriptions = [
+  ],
 
-    'Enjoy ' + time + ' of soothing ' + topic + ' for relaxation and focus.',
+  'ocean waves': [
 
-    'Relax and unwind with calming ' + topic + ' in a peaceful atmosphere.',
+    'Picture yourself on a quiet beach as gentle waves roll onto the shore beneath a golden sunset. The rhythmic sound of the ocean creates a peaceful atmosphere that invites relaxation.',
 
-    'Perfect background audio for ' + benefit + ', study, work, meditation, or rest.',
+    'Soft waves wash over the sand while a cool sea breeze moves through the air. The soothing rhythm of the ocean provides a tranquil backdrop for rest and reflection.',
 
-    'Use this relaxing ' + topic + ' during reading, studying, or quiet reflection.',
+    'As the tide moves steadily across the shoreline, the natural sound of the sea fills the surrounding air. The gentle motion of the waves creates a relaxing environment.',
 
-    'A peaceful soundtrack for ' + benefit + ' and everyday listening.',
+    'Imagine listening to ocean waves from a quiet seaside retreat where the horizon stretches endlessly into the distance. The calming sound of water helps clear the mind.',
 
-    'Designed to help you feel more relaxed, focused, and refreshed.',
+    'The steady rhythm of rolling waves blends with the refreshing sea breeze to create a soothing coastal atmosphere. Let the natural soundscape help you unwind.'
 
-    'Let the gentle ambience help you recharge after a long day.',
+  ],
 
-    'Ideal for creating a calm and comfortable environment at home or at work.',
+  'forest sounds': [
 
-    'Enjoy natural and soothing sounds without distractions.',
+    'Imagine walking through a peaceful forest where birds sing softly among tall trees and leaves rustle gently in the breeze. The natural ambience creates a calming environment.',
 
-    'Take a moment to slow down and enjoy the peaceful atmosphere.'
+    'Sunlight filters through the forest canopy as gentle woodland sounds surround you. The peaceful atmosphere of birds and rustling leaves offers a soothing escape.',
 
-  ];
+    'Deep within a quiet forest, the sounds of nature blend together in perfect harmony. Birds call from the treetops while a soft breeze moves through the leaves.',
 
-}
+    'Picture yourself resting beside a woodland path as the forest comes alive with gentle natural sounds. The calming ambience helps ease tension and create a peaceful space.',
+
+    'The soothing sound of birdsong and rustling leaves fills the forest air while sunlight dances across the trees. Let the woodland atmosphere help you relax.'
+
+  ],
+
+  'piano music': [
+
+    'Imagine a softly lit room where gentle piano melodies drift through the air like a quiet evening breeze. Each note creates a peaceful atmosphere that encourages relaxation.',
+
+    'Delicate piano music flows smoothly from one melody to the next, creating a warm and comforting listening experience. The soothing harmonies provide a relaxing backdrop.',
+
+    'Picture yourself listening to gentle piano melodies as the world slows down around you. The soft notes create a tranquil environment that helps ease stress.',
+
+    'A calm piano performance fills the room with warm, soothing tones that gently guide the mind into a more relaxed state. The peaceful melodies create an atmosphere of serenity.',
+
+    'As the gentle piano music continues, each note blends into a soothing and elegant soundscape. Let the calming melodies help you unwind and enjoy a peaceful moment.'
+
+  ]
+
+};
+
+const descriptions = topicDescriptions[topic] || [
+
+  'Imagine settling into a quiet and peaceful environment where gentle ambient sounds create a soothing atmosphere around you. The calming soundscape helps you unwind and enjoy a refreshing moment away from the noise of everyday life.',
+
+  'A soft and tranquil ambience fills the air, creating a comforting setting for relaxation, meditation, or quiet reflection. The gentle sounds provide a peaceful background that encourages calmness and ease.',
+
+  'Picture yourself surrounded by a calm and soothing atmosphere where relaxing ambient sounds flow gently in the background. The peaceful soundscape creates a sense of balance and comfort while helping you slow down and recharge.'
+
+];
 
 descriptions.sort(function() {
 
@@ -391,7 +420,8 @@ descriptions.sort(function() {
 
 });
 
-const selectedDescriptions = descriptions.slice(0, 5);
+const selectedDescriptions = descriptions.slice(0, 3);
+  
 document.getElementById('results').innerHTML =
   selectedTitles.map(function(t) {
     return '<div class="result-card">' + t + '</div>';

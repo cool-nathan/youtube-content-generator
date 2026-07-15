@@ -171,7 +171,8 @@
 <br><br>
 <button onclick="generateTitles()">Generate</button>
 <button id="copyButton" onclick="copyTitles()" disabled>📋 Copy All Titles</button>
-<button id="copyDescButton" onclick="copyDescriptions()" disabled>📋 Copy Descriptions</button>
+<button id="copyDescButton" onclick="copyDescriptions()" disabled>📋 Copy All Descriptions</button>
+<button id="copyAllButton" onclick="copyEverything()" disabled>📋 Copy Everything</button>
 <h2 class="section-title">🎬 Generated Titles</h2>
 <div id="results"></div>
 <h2 class="section-title">📝 Generated Descriptions</h2>
@@ -230,18 +231,27 @@ const descriptions = [
   }).join('');
   document.getElementById('copyButton').disabled = false;
   document.getElementById('copyDescButton').disabled = false;
+  document.getElementById('copyAllButton').disabled = false;
 }
 function copyTitles() {
 
-  const text = document.getElementById('results').innerText.trim();
+  const titleElements = document.querySelectorAll('#results .result-card');
 
-  if (text === '') {
+  if (titleElements.length === 0) {
 
     alert('Please generate titles first.');
 
     return;
 
   }
+
+  let text = '🎬 Generated Titles\n\n';
+
+  titleElements.forEach(function(el) {
+
+    text += '• ' + el.innerText + '\n';
+
+  });
 
   navigator.clipboard.writeText(text);
 
@@ -251,9 +261,9 @@ function copyTitles() {
 
 function copyDescriptions() {
 
-  const text = document.getElementById('descriptions').innerText.trim();
+  const descElements = document.querySelectorAll('#descriptions .description-card');
 
-  if (text === '') {
+  if (descElements.length === 0) {
 
     alert('Please generate descriptions first.');
 
@@ -261,13 +271,62 @@ function copyDescriptions() {
 
   }
 
+  let text = '📝 Generated Descriptions\n\n';
+
+  descElements.forEach(function(el) {
+
+    text += '• ' + el.innerText + '\n';
+
+  });
+
   navigator.clipboard.writeText(text);
 
   alert('Descriptions copied!');
 
 }
+function copyEverything() {
 
+  const titleElements = document.querySelectorAll('#results .result-card');
+
+  const descElements = document.querySelectorAll('#descriptions .description-card');
+
+  if (titleElements.length === 0 && descElements.length === 0) {
+
+    alert('Please generate content first.');
+
+    return;
+
+  }
+
+  let allText = '🎬 Generated Titles\n\n';
+
+  titleElements.forEach(function(el) {
+
+    allText += '• ' + el.innerText + '\n';
+
+  });
+
+  allText += '\n📝 Generated Descriptions\n\n';
+
+  descElements.forEach(function(el) {
+
+    allText += '• ' + el.innerText + '\n';
+
+  });
+
+  navigator.clipboard.writeText(allText);
+
+  alert('Everything copied!');
+
+}
 </script>
+<hr>
+
+<p style="text-align:center;color:#6b7280;font-size:14px;">
+
+  Created by Cool Nathan
+
+</p>
 </div>
 </body>
 </html>

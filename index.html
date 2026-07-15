@@ -230,15 +230,24 @@
 
 </select>
 <p>Audience</p>
+
 <select id="audience">
 
-  <option>adults</option>
+  <option value="-">-</option>
 
-  <option>students</option>
+  <option value="students">students</option>
 
-  <option>beginners</option>
+  <option value="babies">babies</option>
 
-  <option>professionals</option>
+  <option value="children">children</option>
+
+  <option value="office workers">office workers</option>
+
+  <option value="yoga practitioners">yoga practitioners</option>
+
+  <option value="meditation listeners">meditation listeners</option>
+
+  <option value="sleep listeners">sleep listeners</option>
 
 </select>
 <p>Time</p>
@@ -292,8 +301,6 @@ function generateTitles() {
 
   time + ' of ' + topic,
 
-  'Relaxing ' + topic + ' for ' + audience,
-
   'Peaceful ' + topic + ' for ' + time,
 
   'Calming ' + topic + ' for better sleep',
@@ -309,6 +316,12 @@ function generateTitles() {
   'Natural ' + topic + ' for a peaceful atmosphere'
 
 ];
+
+if (audience !== '-') {
+
+  titles.push('Relaxing ' + topic + ' for ' + audience);
+
+}
 titles.sort(function() {
 
   return Math.random() - 0.5;

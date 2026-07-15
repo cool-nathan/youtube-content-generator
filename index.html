@@ -111,7 +111,60 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 
 }
+.section-header {
 
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 30px;
+
+  margin-bottom: 15px;
+
+}
+
+.section-title {
+
+  margin: 0;
+
+  color: #1e3a8a;
+
+}
+.copy-small {
+
+  width: auto;
+
+  padding: 8px 14px;
+
+  font-size: 14px;
+
+  background: #ffffff;
+
+  color: #1f2937;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+}
+
+.copy-small:hover {
+
+  background: #f3f4f6;
+
+}
+
+.copy-small:disabled {
+
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+}
   </style>
 
 </head>
@@ -170,12 +223,22 @@
 </select>
 <br><br>
 <button onclick="generateTitles()">Generate</button>
-<button id="copyButton" onclick="copyTitles()" disabled>📋 Copy All Titles</button>
-<button id="copyDescButton" onclick="copyDescriptions()" disabled>📋 Copy All Descriptions</button>
-<button id="copyAllButton" onclick="copyEverything()" disabled>📋 Copy Everything</button>
-<h2 class="section-title">🎬 Generated Titles</h2>
+
+<div class="section-header">
+
+  <h2 class="section-title">🎬 Generated Titles</h2>
+
+  <button class="copy-small" id="copyButton" onclick="copyTitles()" disabled>📋 Copy All</button>
+
+</div>
 <div id="results"></div>
-<h2 class="section-title">📝 Generated Descriptions</h2>
+<div class="section-header">
+
+  <h2 class="section-title">📝 Generated Descriptions</h2>
+
+  <button class="copy-small" id="copyDescButton" onclick="copyDescriptions()" disabled>📋 Copy All</button>
+
+</div>
 <div id="descriptions"></div>
 <script>
 
@@ -320,6 +383,11 @@ function copyEverything() {
 
 }
 </script>
+<div style="text-align:center;margin-top:30px;">
+
+  <button id="copyAllButton" onclick="copyEverything()" disabled>📋 Copy Everything</button>
+
+</div>
 <hr>
 
 <p style="text-align:center;color:#6b7280;font-size:14px;">

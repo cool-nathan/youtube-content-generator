@@ -295,62 +295,124 @@ function generateTitles() {
 
   const time = document.getElementById('time').value;
 
-  const titles = [
+  let titles = [];
 
-  'Best ' + topic + ' for ' + benefit,
+if (audience === '-') {
 
-  time + ' of ' + topic,
+  titles = [
 
-  'Peaceful ' + topic + ' for ' + time,
+    'Best ' + topic + ' for ' + benefit,
 
-  'Calming ' + topic + ' for better sleep',
+    time + ' of ' + topic,
 
-  'Soothing ' + topic + ' for relaxation',
+    'Peaceful ' + topic + ' for ' + time,
 
-  'Gentle ' + topic + ' for focus and study',
+    'Calming ' + topic + ' for better sleep',
 
-  'Relax and unwind with ' + topic,
+    'Soothing ' + topic + ' for relaxation',
 
-  'Background ' + topic + ' for work and study',
+    'Gentle ' + topic + ' for focus and study',
 
-  'Natural ' + topic + ' for a peaceful atmosphere'
+    'Relax and unwind with ' + topic,
 
-];
+    'Background ' + topic + ' for work and study',
 
-if (audience !== '-') {
+    'Natural ' + topic + ' for a peaceful atmosphere',
 
-  titles.push('Relaxing ' + topic + ' for ' + audience);
+    'Relaxing ' + topic + ' for quiet moments'
+
+  ];
+
+} else {
+
+  titles = [
+
+    'Relaxing ' + topic + ' for ' + audience,
+
+    'Calming ' + topic + ' for ' + audience,
+
+    'Peaceful ' + topic + ' for ' + audience,
+
+    'Soothing ' + topic + ' for ' + audience,
+
+    'Gentle ' + topic + ' for ' + audience,
+
+    'Best ' + topic + ' for ' + audience,
+
+    'Natural ' + topic + ' for ' + audience,
+
+    'Relax and unwind with ' + topic + ' for ' + audience,
+
+    time + ' of ' + topic + ' for ' + audience,
+
+    'Peaceful bedtime ' + topic + ' for ' + audience
+
+  ];
 
 }
+
 titles.sort(function() {
 
   return Math.random() - 0.5;
 
 });
+
 const selectedTitles = titles.slice(0, 5);
-const descriptions = [
+let descriptions = [];
 
-  'Enjoy ' + time + ' of soothing ' + topic + ' designed for ' + audience + '.',
+if (audience === 'babies' || audience === 'children') {
 
-  'Relax and unwind with calming ' + topic + ' in a peaceful atmosphere.',
+  descriptions = [
 
-  'Perfect background audio for ' + benefit + ', study, work, meditation, or rest.',
+    'Enjoy ' + time + ' of gentle ' + topic + ' designed for a peaceful bedtime routine.',
 
-  'Use this relaxing ' + topic + ' during reading, studying, or quiet reflection.',
+    'Soft and calming ' + topic + ' to help little ones relax and settle down.',
 
-  'A peaceful soundtrack for ' + benefit + ' and everyday listening.',
+    'Perfect for creating a soothing atmosphere during nap time or bedtime.',
 
-  'Designed to help ' + audience + ' feel more relaxed, focused, and refreshed.',
+    'Let the gentle sounds provide a calm and comforting environment.',
 
-  'Let the gentle ambience help you recharge after a long day.',
+    'A peaceful soundtrack for quiet moments and restful sleep.',
 
-  'Ideal for creating a calm and comfortable environment at home or at work.',
+    'Use this relaxing ' + topic + ' as part of a calming bedtime routine.',
 
-  'Enjoy natural and soothing sounds without distractions.',
+    'Enjoy soothing sounds that help create a cozy and relaxing atmosphere.',
 
-  'Take a moment to slow down and enjoy the peaceful atmosphere.'
+    'Designed to support a peaceful and restful listening experience.',
 
-];
+    'Gentle ambience for relaxing evenings and quiet bedtime moments.',
+
+    'Take a moment to enjoy the calm and peaceful atmosphere.'
+
+  ];
+
+} else {
+
+  descriptions = [
+
+    'Enjoy ' + time + ' of soothing ' + topic + ' for relaxation and focus.',
+
+    'Relax and unwind with calming ' + topic + ' in a peaceful atmosphere.',
+
+    'Perfect background audio for ' + benefit + ', study, work, meditation, or rest.',
+
+    'Use this relaxing ' + topic + ' during reading, studying, or quiet reflection.',
+
+    'A peaceful soundtrack for ' + benefit + ' and everyday listening.',
+
+    'Designed to help you feel more relaxed, focused, and refreshed.',
+
+    'Let the gentle ambience help you recharge after a long day.',
+
+    'Ideal for creating a calm and comfortable environment at home or at work.',
+
+    'Enjoy natural and soothing sounds without distractions.',
+
+    'Take a moment to slow down and enjoy the peaceful atmosphere.'
+
+  ];
+
+}
 
 descriptions.sort(function() {
 

@@ -299,20 +299,38 @@ function generateTitles() {
     'Peaceful ' + topic + ' for ' + time
 
   ];
-
+titles.sort(() => Math.random() - 0.5);
 const descriptions = [
 
-'This ' + topic + ' is created to help ' + audience + ' enjoy ' + benefit + '. Relax and unwind with ' + time + ' of soothing sounds.',
+  This ${topic} is created to help ${audience} enjoy ${benefit}.,
 
-'Enjoy ' + time + ' of calming ' + topic + ' designed for ' + audience + ' who want ' + benefit + '.',
+  Enjoy ${time} of calming ${topic} designed for ${audience}.,
 
-'Take a moment to relax with this ' + topic + '. Perfect for ' + audience + ' seeking ' + benefit + '.'
+  Take a moment to ${benefit} with this ${topic}.,
+
+  Perfect background audio for study, work, and focus.,
+
+  Let the gentle ambience help you unwind and recharge.,
+
+  Ideal for evening relaxation and better sleep.,
+
+  Use this peaceful ${topic} during your daily routine.,
+
+  Create a calm atmosphere anywhere you are.,
+
+  Enjoy natural ambience without distractions.,
+
+  Perfect for meditation, reflection, and quiet moments.
 
 ];
+descriptions.sort(function() {
 
- 
+  return Math.random() - 0.5;
 
-  document.getElementById('results').innerHTML =
+});
+
+const selectedDescriptions = descriptions.slice(0, 5);
+document.getElementById('results').innerHTML =
 
   titles.map(function(t) {
 
@@ -320,11 +338,8 @@ const descriptions = [
 
   }).join('');
  document.getElementById('descriptions').innerHTML =
-
-  descriptions.map(function(d) {
-
+  selectedDescriptions.map(function(d) {
     return '<div class="description-card">' + d + '</div>';
-
   }).join('');
   document.getElementById('copyButton').disabled = false;
   document.getElementById('copyDescButton').disabled = false;

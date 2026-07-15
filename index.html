@@ -188,18 +188,7 @@
   <option value="waterfall sounds">waterfall sounds</option>
 
 </select>
-<p>Benefit</p>
-<select id="benefit">
 
-  <option>deep sleep</option>
-
-  <option>relaxation</option>
-
-  <option>focus</option>
-
-  <option>stress relief</option>
-
-</select>
 <p>Audience</p>
 
 <select id="audience">
@@ -211,8 +200,6 @@
   <option value="babies">babies</option>
 
   <option value="children">children</option>
-
-  <option value="office workers">office workers</option>
 
   <option value="yoga practitioners">yoga practitioners</option>
 
@@ -260,8 +247,6 @@ function generateTitles() {
 
  const topic = document.getElementById('topic').value;
 
-  const benefit = document.getElementById('benefit').value;
-
   const audience = document.getElementById('audience').value;
 
   const time = document.getElementById('time').value;
@@ -272,7 +257,7 @@ if (audience === 'general') {
 
   titles = [
 
-    'Best ' + topic + ' for ' + benefit,
+    'Best ' + topic + ' for relaxation',
 
     time + ' of ' + topic,
 

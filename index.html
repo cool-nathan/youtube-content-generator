@@ -288,18 +288,33 @@ function generateTitles() {
 
   const titles = [
 
-    'Best ' + topic + ' for ' + benefit,
+  'Best ' + topic + ' for ' + benefit,
 
-    time + ' of ' + topic,
+  time + ' of ' + topic,
 
-    'Relaxing ' + topic + ' for ' + audience,
+  'Relaxing ' + topic + ' for ' + audience,
 
-    'Deep ' + benefit + ' with ' + topic,
+  'Deep ' + benefit + ' with ' + topic,
 
-    'Peaceful ' + topic + ' for ' + time
+  'Peaceful ' + topic + ' for ' + time,
+
+  topic + ' to help you ' + benefit,
+
+  'Calming ' + topic + ' for better sleep',
+
+  'Soothing ' + topic + ' for relaxation',
+
+  'Gentle ' + topic + ' for focus and study',
+
+  'Relax and unwind with ' + topic
 
   ];
-titles.sort(() => Math.random() - 0.5);
+titles.sort(function() {
+
+  return Math.random() - 0.5;
+
+});
+const selectedTitles = titles.slice(0, 5);
 const descriptions = [
 
   'This ' + topic + ' is created to help ' + audience + ' enjoy ' + benefit + '.',
@@ -332,11 +347,8 @@ descriptions.sort(function() {
 
 const selectedDescriptions = descriptions.slice(0, 5);
 document.getElementById('results').innerHTML =
-
-  titles.map(function(t) {
-
+  selectedTitles.map(function(t) {
     return '<div class="result-card">' + t + '</div>';
-
   }).join('');
  document.getElementById('descriptions').innerHTML =
   selectedDescriptions.map(function(d) {
